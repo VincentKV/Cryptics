@@ -167,7 +167,8 @@ normalizedCourse <- function(ts){
 #' @export
 
 wallet <- function(symbol="BTC",currency="USD",amount,start,end=as.Date(Sys.Date())){
-
+  start=as.Date(start)
+  end=as.Date(end)
   ts=cryptoCourse(symbol,currency)
   ts=normalizedCourse(ts)
   adjust=ts[which(time(ts)==start)]
@@ -175,6 +176,9 @@ wallet <- function(symbol="BTC",currency="USD",amount,start,end=as.Date(Sys.Date
   #si end vaut la date actuelle mais que cette dernière ne figure pas encore dans les data...
   if(end==as.Date(Sys.Date()) && as.Date(Sys.Date())!=time(ts)[length(ts)]){
     end=as.Date(Sys.Date()-1)#on décale au jour précédent
+  }
+  if(end==as.Date(Sys.Date()-1) && as.Date(Sys.Date()-1)!=time(ts)[length(ts)]){
+    end=as.Date(Sys.Date()-2)#on décale au jour précédent
   }
   N=which(time(ts)==end)-which(time(ts)==start)+1
 
@@ -219,11 +223,18 @@ wallet <- function(symbol="BTC",currency="USD",amount,start,end=as.Date(Sys.Date
 #'
 
 invest <- function(symbol="BTC",currency="USD",amount,start,end=as.Date(Sys.Date())){
+  start=as.Date(start)
+  end=as.Date(end)
   course=cryptoCourse(symbol,currency)
+  ts=normalizedCourse(course)
+  if(end==as.Date(Sys.Date()) && as.Date(Sys.Date())!=time(course)[length(course$Open)]){
+    end=as.Date(Sys.Date()-1)#on décale au jour précédent
+  }
+  if(end==as.Date(Sys.Date()-1) && as.Date(Sys.Date()-1)!=time(course)[length(course$Open)]){
+    end=as.Date(Sys.Date()-2)#on décale au jour précédent
+  }
 
-  data=as.data.frame(normalizedCourse(course))
-
-  evolDx=data[which(rownames(data)==end)]-data[which(rownames(data)==start)]
+  evolDx=ts[end][[1]]-ts[start][[1]]
   gain=amount*(1+evolDx)
   return(gain)
 }
@@ -331,8 +342,15 @@ historic <- function(symbol="BTC",currency="USD"){
 #' @export
 
 candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-29,end=Sys.Date()){
-
+  start=as.Date(start)
+  end=as.Date(end)
   ts=cryptoCourse(symbol,currency)#a double time-series
+  if(end==as.Date(Sys.Date()) && as.Date(Sys.Date())!=time(ts)[length(ts)]){
+    end=as.Date(Sys.Date()-1)#on décale au jour précédent
+  }
+  if(end==as.Date(Sys.Date()-1) && as.Date(Sys.Date()-1)!=time(ts)[length(ts)]){
+    end=as.Date(Sys.Date()-2)#on décale au jour précédent
+  }
   #conversion de la time series en dataframe
   data <- data.frame(
     Date=seq(from=start, to=end, by=1 ),
