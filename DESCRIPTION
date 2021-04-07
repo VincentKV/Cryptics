@@ -1,0 +1,14 @@
+Package: Cryptics
+Title: Cryptics
+Version: 0.0
+Authors@R: 
+    person(given = "Vincent",
+           family = "KV",
+           role = c("aut", "cre"),
+           email = "contact@vincentkv.com")
+Description: Cryptocurrencies Analytics
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
