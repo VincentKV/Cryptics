@@ -17,8 +17,8 @@ library(Cryptics)
 
 ### Symbol check
 If you want to check that a cryptocurrency is supported by the package, you need to type in its symbol. For example, "BTC" for Bitcoin. 
-![GitHub Logo](/images/symbolcheck1.png)
+![GitHub Logo](/images/symbolcheck1new.png)
 
 If you are not sure about the exact symbol, symbolcheck() provides you suggestions.
-![GitHub Logo](/images/symbolcheck2.png)
+![GitHub Logo](/images/symbolcheck2new.png)
 
