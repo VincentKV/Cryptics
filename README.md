@@ -25,7 +25,7 @@ If you are not sure about the exact symbol, symbolcheck() provides you suggestio
 
 ### View all cryptocurrencies
 
-You can also visualize all the cryptocurrencies supported by the Cryptics package.
+You can also visualize all the cryptocurrencies supported by the Cryptics package, and sort the columns alphabetically for a quicker search.
 ![GitHub Logo](/images/viewall1.png)
 
 ### Cryptocurrency course
