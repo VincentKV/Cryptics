@@ -9,8 +9,8 @@ export(invest)
 export(wallet)
 export(portfolio)
 export(historic)
-export(candlestick)
-export(cointracker)
+export(candlesticks)
+export(cointrack)
 
 
 import(dygraphs)
