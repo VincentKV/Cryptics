@@ -50,6 +50,6 @@ The default is Bitcoin with today as end date. 20 euros invested in Bitcoin on 2
 ![GitHub Logo](/images/invest2.png)
 ### Historical data graph
 
-Plot an interactive graph with the normalized historical data of a single cryptocurrency. The default is Bitcoin in US Dollar.
+Plot an interactive graph with the normalized historical data of a single cryptocurrency. The default is Bitcoin in US Dollar. USD is advised as there is more data in this currency.
 ![GitHub Logo](/images/historiccommand.png)
 ![GitHub Logo](/images/historic.png)
