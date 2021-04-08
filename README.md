@@ -33,12 +33,6 @@ You can also visualize all the cryptocurrencies supported by the Cryptics packag
 Get the daily data (Open, High, Low, Close, Adjusted, Volume) of a particular cryptocurrency from its creation until today. Returns a time series.
 ![GitHub Logo](/images/cryptocourse1.png)
 
-### Coin tracker graph
-
-Plot an interactive graph with the historical data of your portfolio.
-![GitHub Logo](/images/cointrackcommand.png)
-![GitHub Logo](/images/cointrack.png)
-
 The default is Bitcoin in US Dollar.
 ![GitHub Logo](/images/cryptocourse2.png)
 
@@ -49,7 +43,7 @@ Normalize a course between 0 and 1 to easily compare cryptocurrencies and work w
 
 ### Return on investment
 
-Compute the simple gain or loss given a specific cryptocurrency and a particular amount of money invested in it during a period of time. Currency does not matter. 20 euros (or dollars...) invested in Litecoin on 2021-01-01 would be 31.69 euros on 2021-04-01.
+Compute the simple gain or loss given a specific cryptocurrency and a particular amount of money invested in it during a period of time. Currency does not matter. 20 euros (or dollars...) invested in Litecoin on 2021-01-01 would be 31.69 euros on 2021-04-01. Prints the creation date of the cryptocurrency.
 ![GitHub Logo](/images/invest1.png)
 
 The default is Bitcoin with today as end date. 20 euros invested in Bitcoin on 2021-02-01 would be 327.52 euros today.
@@ -57,13 +51,13 @@ The default is Bitcoin with today as end date. 20 euros invested in Bitcoin on 2
 
 ### Historical data graph
 
-Plot an interactive graph with the normalized historical data of a single cryptocurrency. The default is Bitcoin in US Dollar. USD is advised as there is older data in this currency.
+Plot an interactive graph with the normalized historical data of a single cryptocurrency. The default is Bitcoin in US Dollar. USD is advised as there is older data in this currency. Prints the creation date of the cryptocurrency.
 ![GitHub Logo](/images/historiccommand.png)
 ![GitHub Logo](/images/historic.png)
 
 ### Candlestick chart
 
-Plots an interactive graph with the candlestick chart of a single cryptocurrency. The default is Bitcoin in US Dollar, on the last 30 days.
+Plots an interactive graph with the candlestick chart of a single cryptocurrency. The default is Bitcoin in US Dollar, on the last 30 days. Prints the creation date of the cryptocurrency.
 ![GitHub Logo](/images/candlestickcommand.png)
 ![GitHub Logo](/images/candlestick.png)
 
