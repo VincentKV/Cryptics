@@ -23,6 +23,10 @@ If you want to check that a cryptocurrency is supported by the package, you need
 If you are not sure about the exact symbol, symbolcheck() provides you suggestions.
 ![GitHub Logo](/images/symbolcheck2new.png)
 
+### View all cryptocurrencies
+
+![GitHub Logo](/images/viewall.png)
+
 ### Cryptocurrency course
 
 Get the daily data (Open, High, Low, Close, Adjusted, Volume) of a particular cryptocurrency from its creation until today. Returns a time series.
