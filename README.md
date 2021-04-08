@@ -12,4 +12,4 @@ Then, download the package :
 ```
 install_github("VincentKV/Cryptics")
 library(Cryptics)
-
+```
