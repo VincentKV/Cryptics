@@ -25,4 +25,8 @@ If you are not sure about the exact symbol, symbolcheck() provides you suggestio
 
 ## Cryptocurrency course
 
-Get the daily data (Open, High, Low, Close) of a particular cryptocurrency from its creation until today.
+Get the daily data (Open, High, Low, Close, Adjusted, Volume) of a particular cryptocurrency from its creation until today. Returns a time series.
+![GitHub Logo](/images/cryptocourse1.png)
+
+The default is Bitcoin in US Dollar.
+![GitHub Logo](/images/cryptocourse2.png)
