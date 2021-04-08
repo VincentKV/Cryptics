@@ -58,4 +58,5 @@ Plot an interactive graph with the normalized historical data of a single crypto
 ### Wallet 
 
 The wallet is the perfect way to keep track on an investment.
-Compute the time series of earnings and losses given a specific cryptocurrency and a particular amount of money invested in it during a period of time.
+Compute the time series of earnings and losses given a specific cryptocurrency and a particular amount of money invested in it during a period of time. The default is Bitcoin with today as end date. 
+![GitHub Logo](/images/wallet.png)
