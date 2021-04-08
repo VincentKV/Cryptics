@@ -302,10 +302,11 @@ historic <- function(symbol="BTC",currency="USD"){
 
   course=cryptoCourse(symbol,currency)#a double time-series
   df=normalizedCourse(course)#a time series rongly named df
+  title=paste("Normalized",symbol,"course",sep=" ")
   data <- xts(x = df, order.by = time(df))
   p <- dygraph(data,
-               main = symbol,
-               ylab = "Normalized course") %>%
+               main = title,
+               ylab = "Value") %>%
     dyOptions( drawPoints = TRUE, pointSize = 0.1, fillGraph = TRUE) %>%
     dyRangeSelector()
   p
