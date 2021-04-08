@@ -352,11 +352,12 @@ candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys
   options(warn=-1)
   start=as.Date(start)
   end=as.Date(end)
+  title=paste("Normalized",symbol,"candlestick chart",sep=" ")
   ts=cryptoCourse(symbol,currency)#a double time-series
-  if(end==as.Date(Sys.Date()) && as.Date(Sys.Date())!=time(ts)[length(ts)]){
+  if(end==as.Date(Sys.Date()) && as.Date(Sys.Date())!=time(ts)[length(ts$Open)]){
     end=as.Date(Sys.Date()-1)#on décale au jour précédent
   }
-  if(end==as.Date(Sys.Date()-1) && as.Date(Sys.Date()-1)!=time(ts)[length(ts)]){
+  if(end==as.Date(Sys.Date()-1) && as.Date(Sys.Date()-1)!=time(ts)[length(ts$Open)]){
     end=as.Date(Sys.Date()-2)#on décale au jour précédent
   }
   #conversion de la time series en dataframe
@@ -370,7 +371,8 @@ candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys
   data <- xts(x = data[,-1], order.by = data$Date)
 
   # Plot it
-  p <- dygraph(data) %>%
+  p <- dygraph(data,
+               main=title) %>%
     dyCandlestick() %>%
     dyRangeSelector()
   p
