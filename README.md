@@ -33,6 +33,12 @@ You can also visualize all the cryptocurrencies supported by the Cryptics packag
 Get the daily data (Open, High, Low, Close, Adjusted, Volume) of a particular cryptocurrency from its creation until today. Returns a time series.
 ![GitHub Logo](/images/cryptocourse1.png)
 
+### Coin tracker graph
+
+Plot an interactive graph with the historical data of your portfolio.
+![GitHub Logo](/images/cointrackcommand.png)
+![GitHub Logo](/images/cointrack.png)
+
 The default is Bitcoin in US Dollar.
 ![GitHub Logo](/images/cryptocourse2.png)
 
