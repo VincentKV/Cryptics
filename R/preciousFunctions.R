@@ -301,11 +301,10 @@ viewAllCryptos <- function(){
 historic <- function(symbol="BTC",currency="USD"){
 
   course=cryptoCourse(symbol,currency)#a double time-series
-  quotename=paste(symbol,"-",currency,sep="")
   df=normalizedCourse(course)#a time series rongly named df
   data <- xts(x = df, order.by = time(df))
   p <- dygraph(data,
-               main = quotename,
+               main = symbol,
                ylab = "Normalized course") %>%
     dyOptions( drawPoints = TRUE, pointSize = 0.1, fillGraph = TRUE) %>%
     dyRangeSelector()
