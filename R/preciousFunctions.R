@@ -289,7 +289,7 @@ viewAllCryptos <- function(){
 #' Plots an interactive graph with the normalized historical data of a single cryptocurrency.
 #'
 #' @param symbol a character string of the symbol. Default is "BTC" for Bitcoin.
-#' @param currency a character string for the region of the currency. "USD", "EUR", "GBP"... Default is "USD" for US Dollar.
+#' @param currency a character string for the region of the currency. "USD", "EUR", "GBP"... Default is "USD" for US Dollar. USD is advised as there is more data in this currency.
 #'
 #'
 

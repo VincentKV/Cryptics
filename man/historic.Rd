@@ -9,7 +9,7 @@ historic(symbol = "BTC", currency = "USD")
 \arguments{
 \item{symbol}{a character string of the symbol. Default is "BTC" for Bitcoin.}
 
-\item{currency}{a character string for the region of the currency. "USD", "EUR", "GBP"... Default is "USD" for US Dollar.}
+\item{currency}{a character string for the region of the currency. "USD", "EUR", "GBP"... Default is "USD" for US Dollar. USD is advised as there is more data in this currency.}
 }
 \description{
 Plots an interactive graph with the normalized historical data of a single cryptocurrency.
