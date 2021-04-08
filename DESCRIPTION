@@ -8,6 +8,7 @@ Authors@R:
            email = "contact@vincentkv.com")
 Description: Cryptocurrencies Analytics
 License: GPL-3
+Imports: dygraphs,xts,tseries,stringr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
