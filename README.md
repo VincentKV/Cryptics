@@ -71,3 +71,9 @@ Compute the time series of earnings and losses given a specific cryptocurrency a
 
 The portfolio takes the list of your wallets and compute the time series of your total earnings and losses.
 ![GitHub Logo](/images/portfolio.png)
+
+### Coin tracker graph
+
+Plot an interactive graph with the historical data of your portfolio.
+![GitHub Logo](/images/cointrackcommand.png)
+![GitHub Logo](/images/cointrack.png)
