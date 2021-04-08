@@ -1,5 +1,7 @@
 # Cryptics
 
+![GitHub Logo](/images/banner.png)
+
 ## Installation
 Prior to download this package, make sure you have devtools installed :
 install.packages("devtools")
