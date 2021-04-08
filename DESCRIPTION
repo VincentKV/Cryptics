@@ -10,6 +10,6 @@ Description: Cryptocurrencies Analytics
 License: GPL-3
 Imports: dygraphs,xts,tseries,stringr
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
