@@ -13,7 +13,7 @@ normalizedCourse(ts)
 a normalized time series.
 }
 \description{
-Normalizes a given cryptocurrency time series between 0 and 1. 1 is the all-time-high.
+Normalizes a given cryptocurrency time series between 0 and 1. The values taken are the "Opens". 1 is the all-time-high.
 }
 \examples{
 my_normalized_course=normalizedCourse(cryptoCourse(symbol="LTC",currency="EUR"))

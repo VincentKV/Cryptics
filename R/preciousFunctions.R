@@ -116,7 +116,7 @@ cryptoCourse <- function(symbol="BTC",currency="USD"){
 
 #' Normalized cryptocurrency course
 #'
-#' Normalizes a given cryptocurrency time series between 0 and 1. 1 is the all-time-high.
+#' Normalizes a given cryptocurrency time series between 0 and 1. The values taken are the "Opens". 1 is the all-time-high.
 #'
 #' @param ts a time series.
 #'
@@ -280,7 +280,7 @@ viewAllCryptos <- function(){
 
 #' Historical data graph
 #'
-#' Plots an interactive graph with the historical data of a single cryptocurrency.
+#' Plots an interactive graph with the normalized historical data of a single cryptocurrency.
 #'
 #' @param symbol a character string of the symbol. Default is "BTC" for Bitcoin.
 #' @param currency a character string for the region of the currency. "USD", "EUR", "GBP"... Default is "USD" for US Dollar.
@@ -301,10 +301,11 @@ viewAllCryptos <- function(){
 historic <- function(symbol="BTC",currency="USD"){
 
   course=cryptoCourse(symbol,currency)#a double time-series
+  quotename=paste(symbol,"-",currency,sep="")
   df=normalizedCourse(course)#a time series rongly named df
   data <- xts(x = df, order.by = time(df))
   p <- dygraph(data,
-
+               title=quotename,
                ylab = "Normalized course") %>%
     dyOptions( drawPoints = TRUE, pointSize = 0.1, fillGraph = TRUE) %>%
     dyRangeSelector()

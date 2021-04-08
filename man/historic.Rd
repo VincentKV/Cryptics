@@ -12,7 +12,7 @@ historic(symbol = "BTC", currency = "USD")
 \item{currency}{a character string for the region of the currency. "USD", "EUR", "GBP"... Default is "USD" for US Dollar.}
 }
 \description{
-Plots an interactive graph with the historical data of a single cryptocurrency.
+Plots an interactive graph with the normalized historical data of a single cryptocurrency.
 }
 \examples{
 historic()
