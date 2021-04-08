@@ -18,6 +18,7 @@
 #' @export
 
 symbolCheck <- function(symbol){
+  options(warn=-1)
   cryptoslist <- read.csv("cryptolist.csv",sep=";")
   cryptoslist$symbol=str_remove_all(cryptoslist$symbol,"-USD")
   cryptoslist$full_name=str_remove_all(cryptoslist$full_name," USD")
@@ -87,6 +88,7 @@ symbolCheck <- function(symbol){
 #' @export
 
 cryptoCourse <- function(symbol="BTC",currency="USD"){
+  options(warn=-1)
   result=symbolCheck(symbol)
   if(result[[1]]=="Valid symbol"){
     cryptoname=result[[2]]
@@ -130,6 +132,7 @@ cryptoCourse <- function(symbol="BTC",currency="USD"){
 #' @export
 
 normalizedCourse <- function(ts){
+  options(warn=-1)
   #normalizedTs=ts$Open/max(ts$Open,na.rm = TRUE)
   ts=ts$Open/max(ts$Open,na.rm = TRUE)
   return(ts)
@@ -167,6 +170,7 @@ normalizedCourse <- function(ts){
 #' @export
 
 wallet <- function(symbol="BTC",currency="USD",amount,start,end=as.Date(Sys.Date())){
+  options(warn=-1)
   start=as.Date(start)
   end=as.Date(end)
   ts=cryptoCourse(symbol,currency)
@@ -223,6 +227,7 @@ wallet <- function(symbol="BTC",currency="USD",amount,start,end=as.Date(Sys.Date
 #'
 
 invest <- function(symbol="BTC",currency="USD",amount,start,end=as.Date(Sys.Date())){
+  options(warn=-1)
   start=as.Date(start)
   end=as.Date(end)
   course=cryptoCourse(symbol,currency)
@@ -262,6 +267,7 @@ invest <- function(symbol="BTC",currency="USD",amount,start,end=as.Date(Sys.Date
 #'
 
 viewAllCryptos <- function(){
+  options(warn=-1)
   cryptoslist <- read.csv("cryptolist.csv",sep=";")
   cryptoslist$symbol=str_remove_all(cryptoslist$symbol,"-USD")
   cryptoslist$full_name=str_remove_all(cryptoslist$full_name," USD")
@@ -299,7 +305,7 @@ viewAllCryptos <- function(){
 #' @export
 #'
 historic <- function(symbol="BTC",currency="USD"){
-
+  options(warn=-1)
   course=cryptoCourse(symbol,currency)#a double time-series
   df=normalizedCourse(course)#a time series rongly named df
   title=paste("Normalized",symbol,"course",sep=" ")
@@ -343,6 +349,7 @@ historic <- function(symbol="BTC",currency="USD"){
 #' @export
 
 candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys.Date()){
+  options(warn=-1)
   start=as.Date(start)
   end=as.Date(end)
   ts=cryptoCourse(symbol,currency)#a double time-series
@@ -390,6 +397,7 @@ candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys
 #' @import tseries
 #' @export
 portfolio <- function(walletlist){
+  options(warn=-1)
 
   dateMin=start(walletlist[[1]])[1]
   dateMax=end(walletlist[[1]])[1]
@@ -444,7 +452,7 @@ portfolio <- function(walletlist){
 #' @export
 #'
 cointrack <- function(ts){
-
+  options(warn=-1)
   p <- dygraph(ts,
                main="Portfolio evolution",
                ylab = "Money") %>%
