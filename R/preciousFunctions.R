@@ -208,7 +208,6 @@ wallet <- function(symbol="BTC",currency="USD",amount,start,end=as.Date(Sys.Date
 #' Computes the simple gain or loss given a specific cryptocurrency and a particular amount of money invested in it during a period of time.
 #'
 #' @param symbol a character string of the symbol. Default is "BTC" for Bitcoin.
-#' @param currency a character string for the region of the currency. "USD", "EUR", "GBP"... Default is "USD" for US Dollar.
 #' @param amount a numeric value for the amount of money invested, in the previous currency.
 #' @param start a date in "YYYY-MM-DD" format when the money is invested.
 #' @param end a date in "YYYY-MM-DD" format when the money is withdrawed. Default is today.
@@ -218,7 +217,7 @@ wallet <- function(symbol="BTC",currency="USD",amount,start,end=as.Date(Sys.Date
 #' @return a numeric value.
 #'
 #' @examples
-#' my_gain=invest(symbol="BTC",currency="USD",amount=20,start="2021-01-01",end="2021-04-01")
+#' my_gain=invest(symbol="BTC",amount=20,start="2021-01-01",end="2021-04-01")
 #'
 
 #' @author Vincent KV <contact@vincentkv.com>
@@ -226,8 +225,9 @@ wallet <- function(symbol="BTC",currency="USD",amount,start,end=as.Date(Sys.Date
 #' @export
 #'
 
-invest <- function(symbol="BTC",currency="USD",amount,start,end=as.Date(Sys.Date())){
+invest <- function(symbol="BTC",amount,start,end=as.Date(Sys.Date())){
   options(warn=-1)
+  currency="USD"
   start=as.Date(start)
   end=as.Date(end)
   course=cryptoCourse(symbol,currency)
@@ -239,8 +239,8 @@ invest <- function(symbol="BTC",currency="USD",amount,start,end=as.Date(Sys.Date
     end=as.Date(Sys.Date()-2)#on décale au jour précédent
   }
 
-  evolDx=ts[end][[1]]-ts[start][[1]]
-  gain=amount*(1+evolDx)
+  evolDx=ts[end][[1]]/ts[start][[1]]
+  gain=amount*evolDx
   return(gain)
 }
 

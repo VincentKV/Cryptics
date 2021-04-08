@@ -4,18 +4,10 @@
 \alias{invest}
 \title{Return on investment for a single cryptocurrency}
 \usage{
-invest(
-  symbol = "BTC",
-  currency = "USD",
-  amount,
-  start,
-  end = as.Date(Sys.Date())
-)
+invest(symbol = "BTC", amount, start, end = as.Date(Sys.Date()))
 }
 \arguments{
 \item{symbol}{a character string of the symbol. Default is "BTC" for Bitcoin.}
-
-\item{currency}{a character string for the region of the currency. "USD", "EUR", "GBP"... Default is "USD" for US Dollar.}
 
 \item{amount}{a numeric value for the amount of money invested, in the previous currency.}
 
@@ -30,7 +22,7 @@ a numeric value.
 Computes the simple gain or loss given a specific cryptocurrency and a particular amount of money invested in it during a period of time.
 }
 \examples{
-my_gain=invest(symbol="BTC",currency="USD",amount=20,start="2021-01-01",end="2021-04-01")
+my_gain=invest(symbol="BTC",amount=20,start="2021-01-01",end="2021-04-01")
 
 }
 \author{
