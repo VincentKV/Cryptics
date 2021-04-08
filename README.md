@@ -20,5 +20,5 @@ If you want to check that a cryptocurrency is supported by the package, you need
 ![GitHub Logo](/images/symbolcheck1.png)
 
 If you are not sure about the exact symbol, symbolcheck() provides you suggestions.
-![alt text](/images/symbolcheck2.png)
+![GitHub Logo](/images/symbolcheck2.png)
 ![GitHub Logo](/images/symbolcheck3.png)
