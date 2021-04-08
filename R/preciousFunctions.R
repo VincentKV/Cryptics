@@ -69,7 +69,7 @@ symbolCheck <- function(symbol){
 
 #' Cryptocurrency course
 #'
-#' Get the daily data (Open, High, Low, Close) of a particular cryptocurrency from its creation until today.
+#' Get the daily data (Open, High, Low, Close, Adjusted, Volume) of a particular cryptocurrency from its creation until today.
 #'
 #' @param symbol a character string of the symbol. Default is "BTC" for Bitcoin.
 #' @param currency a character string for the region of the currency. "USD", "EUR", "GBP"... Default is "USD" for US Dollar.
@@ -95,7 +95,7 @@ cryptoCourse <- function(symbol="BTC",currency="USD"){
     beginningOfTimes <- as.Date("2000-01-01")
     actualDate <- as.Date(Sys.Date())
 
-    ts=get.hist.quote(instrument = quotename,start=beginningOfTimes,end=actualDate,quote = c("Open","High","Low","Close"))
+    ts=get.hist.quote(instrument = quotename,start=beginningOfTimes,end=actualDate,quote = c("Open","High","Low","Close","Adjusted","Volume"))
     return(ts)
   }
   if(result[[1]]=="Your symbol is not found in the list of the supported currencies, maybe you meant one of those :"){
