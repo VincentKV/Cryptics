@@ -35,3 +35,8 @@ The default is Bitcoin in US Dollar.
 
 Normalize a course between 0 and 1 to easily compare cryptocurrencies and work with percentages. The values taken are the "Opens". 1 is the all-time-high. Returns a time series.
 ![GitHub Logo](/images/normalizedcourse.png)
+
+## Historical data graph
+
+Plot an interactive graph with the normalized historical data of a single cryptocurrency.
+![GitHub Logo](/images/historic.png)
