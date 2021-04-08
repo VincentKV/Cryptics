@@ -341,7 +341,7 @@ historic <- function(symbol="BTC",currency="USD"){
 #' @import dygraphs
 #' @export
 
-candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-29,end=Sys.Date()){
+candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys.Date()){
   start=as.Date(start)
   end=as.Date(end)
   ts=cryptoCourse(symbol,currency)#a double time-series
