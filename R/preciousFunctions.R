@@ -372,7 +372,8 @@ candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys
 
   # Plot it
   p <- dygraph(data,
-               main=title) %>%
+               main=title,
+               ylab = "Value") %>%
     dyCandlestick() %>%
     dyRangeSelector()
   p
