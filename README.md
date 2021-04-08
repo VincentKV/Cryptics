@@ -3,12 +3,12 @@
 ![GitHub Logo](/images/banner.png)
 
 ## Installation
-Prior to download this package, make sure you have devtools installed :
+Prior to download this package, make sure you have devtools installed and loaded :
 ```
 install.packages("devtools")
 library(devtools)
 ```
-Then, download the package :
+Then, download and load the package :
 ```
 install_github("VincentKV/Cryptics")
 library(Cryptics)
