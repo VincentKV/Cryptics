@@ -38,5 +38,6 @@ Normalize a course between 0 and 1 to easily compare cryptocurrencies and work w
 
 ## Historical data graph
 
-Plot an interactive graph with the normalized historical data of a single cryptocurrency.
+Plot an interactive graph with the normalized historical data of a single cryptocurrency. The default is Bitcoin in US Dollar.
+![GitHub Logo](/images/historiccommand.png)
 ![GitHub Logo](/images/historic.png)
