@@ -57,9 +57,15 @@ The default is Bitcoin with today as end date. 20 euros invested in Bitcoin on 2
 
 ### Historical data graph
 
-Plot an interactive graph with the normalized historical data of a single cryptocurrency. The default is Bitcoin in US Dollar. USD is advised as there is more data in this currency.
+Plot an interactive graph with the normalized historical data of a single cryptocurrency. The default is Bitcoin in US Dollar. USD is advised as there is older data in this currency.
 ![GitHub Logo](/images/historiccommand.png)
 ![GitHub Logo](/images/historic.png)
+
+### Candlestick chart
+
+Plots an interactive graph with the candlestick chart of a single cryptocurrency. The default is Bitcoin in US Dollar, on the last 30 days.
+![GitHub Logo](/images/candlestickcommand.png)
+![GitHub Logo](/images/candlestick.png)
 
 ### Wallet 
 
