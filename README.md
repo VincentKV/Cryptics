@@ -44,7 +44,10 @@ Normalize a course between 0 and 1 to easily compare cryptocurrencies and work w
 ### Return on investment for a single cryptocurrency
 
 Compute the simple gain or loss given a specific cryptocurrency and a particular amount of money invested in it during a period of time.
+![GitHub Logo](/images/invest1.png)
 
+The default is Bitcoin with today as end date.
+![GitHub Logo](/images/invest2.png)
 ### Historical data graph
 
 Plot an interactive graph with the normalized historical data of a single cryptocurrency. The default is Bitcoin in US Dollar.
