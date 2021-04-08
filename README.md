@@ -25,7 +25,7 @@ If you are not sure about the exact symbol, symbolcheck() provides you suggestio
 
 ### View all cryptocurrencies
 
-![GitHub Logo](/images/viewall.png)
+![GitHub Logo](/images/viewall1.png)
 
 ### Cryptocurrency course
 
