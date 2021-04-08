@@ -43,10 +43,10 @@ Normalize a course between 0 and 1 to easily compare cryptocurrencies and work w
 
 ### Return on investment for a single cryptocurrency
 
-Compute the simple gain or loss given a specific cryptocurrency and a particular amount of money invested in it during a period of time.
+Compute the simple gain or loss given a specific cryptocurrency and a particular amount of money invested in it during a period of time. Currency does not matter. 20 euros (or dollars...) invested in LiteCoin on 2021-01-01 would be 31.69 euros on 2021-04-01.
 ![GitHub Logo](/images/invest1.png)
 
-The default is Bitcoin with today as end date.
+The default is Bitcoin with today as end date. 20 euros invested in Bitcoin on 2021-02-01 would be 327.52 euros today.
 ![GitHub Logo](/images/invest2.png)
 ### Historical data graph
 
