@@ -15,7 +15,7 @@ cryptoCourse(symbol = "BTC", currency = "USD")
 if found, a time series of the searched cryptocurrency.
 }
 \description{
-Get the daily data (Open, High, Low, Close) of a particular cryptocurrency from its creation until today.
+Get the daily data (Open, High, Low, Close, Adjusted, Volume) of a particular cryptocurrency from its creation until today.
 }
 \examples{
 my_course=cryptoCourse(symbol="LTC")

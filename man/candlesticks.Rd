@@ -7,7 +7,7 @@
 candlesticks(
   symbol = "BTC",
   currency = "USD",
-  start = Sys.Date() - 29,
+  start = Sys.Date() - 30,
   end = Sys.Date()
 )
 }
