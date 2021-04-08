@@ -7,4 +7,4 @@
 #'
 #' }
 #' @source \url{https://github.com/VincentKV/Cryptics}
-"cryptoslist"
+"cryptolist"
