@@ -20,6 +20,7 @@
 symbolCheck <- function(symbol){
   options(warn=-1)
   devtools::load_all()
+  library(Cryptics)
   data("cryptolist")
   cryptoslist=cryptolist
   #cryptoslist <- read.csv("data/cryptolist.csv",sep=";")
