@@ -23,9 +23,49 @@ symbolCheck <- function(symbol){
   library(Cryptics)
   data("cryptolist",envir=environment())
 
-  return(cryptolist$symbol)
+  cryptolist$symbol=str_remove_all(cryptolist$symbol,"-USD")
+  cryptolist$full_name=str_remove_all(cryptolist$full_name," USD")
 
+  if (symbol %in% cryptolist$symbol){
+
+    if (cryptolist$full_name[which(cryptolist$symbol==symbol)] != ""){#si le full name n'est pas vide
+      cryptoname=cryptolist$full_name[which(cryptolist$symbol==symbol)]#on renvoie le full name correspondant au symbole
+    } else{
+      cryptoname=symbol #symbole en absence de full name
+    }
+    return(list("Valid symbol",cryptoname))
+
+  }
+  #si le symbole n'est pas dans la liste
+
+  vec0in=c()
+  vec1in=c()
+  if (length(grep(symbol,cryptolist$symbol))!=0){#mais qu'il est contenu dans d'autres symboles
+    vec0in=cryptolist$symbol[grep(symbol,cryptolist$symbol)]
+    vec1in=cryptolist$full_name[grep(symbol,cryptolist$symbol)]
+  }
+
+  vec0=c()
+  vec1=c()
+  for (i in 1:length(cryptolist$symbol)){
+    if (grepl(cryptolist$symbol[i],symbol)){#variante de grep qui renvoie un booléen au lieu de la position
+      vec0=c(vec0,cryptolist$symbol[i])
+      vec1=c(vec1,cryptolist$full_name[i])
+    }
+  }
+
+  df=data.frame(symbol=c(vec0in,vec0),
+                full_name=c(vec1in,vec1))
+
+  if(length(c(vec0in,vec0))!=0){
+    return(list("Your symbol is not found in the list of the supported currencies, maybe you meant one of those :",df))
+  } else {
+    return(list("Your symbol is not found in the list of the supported currencies."))
+  }
 }
+
+
+
 
 
 
