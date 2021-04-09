@@ -24,46 +24,7 @@ symbolCheck <- function(symbol){
   data("cryptolist",envir=environment())
   cryptoslist=cryptolist
   return(cryptolist$symbol)
-  #cryptoslist <- read.csv("data/cryptolist.csv",sep=";")
-  cryptoslist$symbol=str_remove_all(cryptoslist$symbol,"-USD")
-  cryptoslist$full_name=str_remove_all(cryptoslist$full_name," USD")
 
-  if (symbol %in% cryptoslist$symbol){
-
-    if (cryptoslist$full_name[which(cryptoslist$symbol==symbol)] != ""){#si le full name n'est pas vide
-      cryptoname=cryptoslist$full_name[which(cryptoslist$symbol==symbol)]#on renvoie le full name correspondant au symbole
-    } else{
-      cryptoname=symbol #symbole en absence de full name
-    }
-    return(list("Valid symbol",cryptoname))
-
-  }
-  #si le symbole n'est pas dans la liste
-
-  vec0in=c()
-  vec1in=c()
-  if (length(grep(symbol,cryptoslist$symbol))!=0){#mais qu'il est contenu dans d'autres symboles
-    vec0in=cryptoslist$symbol[grep(symbol,cryptoslist$symbol)]
-    vec1in=cryptoslist$full_name[grep(symbol,cryptoslist$symbol)]
-  }
-
-  vec0=c()
-  vec1=c()
-  for (i in 1:length(cryptoslist$symbol)){
-    if (grepl(cryptoslist$symbol[i],symbol)){#variante de grep qui renvoie un booléen au lieu de la position
-      vec0=c(vec0,cryptoslist$symbol[i])
-      vec1=c(vec1,cryptoslist$full_name[i])
-    }
-  }
-
-  df=data.frame(symbol=c(vec0in,vec0),
-                full_name=c(vec1in,vec1))
-
-  if(length(c(vec0in,vec0))!=0){
-    return(list("Your symbol is not found in the list of the supported currencies, maybe you meant one of those :",df))
-  } else {
-    return(list("Your symbol is not found in the list of the supported currencies."))
-  }
 }
 
 
