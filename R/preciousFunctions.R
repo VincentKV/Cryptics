@@ -19,7 +19,8 @@
 
 symbolCheck <- function(symbol){
   options(warn=-1)
-  cryptoslist <- read.csv("cryptolist.csv",sep=";")
+  data("cryptolist.rda", envir=environment())
+  #cryptoslist <- read.csv("cryptolist.csv",sep=";")
   cryptoslist$symbol=str_remove_all(cryptoslist$symbol,"-USD")
   cryptoslist$full_name=str_remove_all(cryptoslist$full_name," USD")
 
