@@ -22,7 +22,7 @@ symbolCheck <- function(symbol){
   devtools::load_all()
   library(Cryptics)
   data("cryptolist",envir=environment())
-  cryptoslist=cryptolist
+
   return(cryptolist$symbol)
 
 }
