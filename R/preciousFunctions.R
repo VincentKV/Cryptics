@@ -23,8 +23,8 @@ symbolCheck <- function(symbol){
   #library(Cryptics)
   #data("cryptolist",envir=environment())
 
-  cryptolist$symbol=str_remove_all(cryptolist$symbol,"-USD")
-  cryptolist$full_name=str_remove_all(cryptolist$full_name," USD")
+  #cryptolist$symbol=str_remove_all(cryptolist$symbol,"-USD")
+  #cryptolist$full_name=str_remove_all(cryptolist$full_name," USD")
 
   if (symbol %in% cryptolist$symbol){
 
