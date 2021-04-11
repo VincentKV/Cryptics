@@ -274,7 +274,7 @@ invest <- function(symbol="BTC",amount,start,end=as.Date(Sys.Date())){
 
 viewAllCryptos <- function(){
   options(warn=-1)
-  cryptoslist <- read.csv("cryptolist.csv",sep=";")
+  #cryptoslist <- read.csv("cryptolist.csv",sep=";")
   cryptoslist$symbol=str_remove_all(cryptoslist$symbol,"-USD")
   cryptoslist$full_name=str_remove_all(cryptoslist$full_name," USD")
   View(cryptoslist)
