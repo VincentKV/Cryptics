@@ -19,7 +19,7 @@
 
 symbolCheck <- function(symbol){
   options(warn=-1)
-  devtools::load_all()
+  #devtools::load_all()
   #library(Cryptics)
   #data("cryptolist",envir=environment())
 
