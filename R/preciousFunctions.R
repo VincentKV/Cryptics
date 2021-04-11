@@ -258,36 +258,6 @@ invest <- function(symbol="BTC",amount,start,end=as.Date(Sys.Date())){
 
 
 
-#' View all cryptocurrencies
-#'
-#' View in a data frame all the cryptocurrencies available in this package.
-#'
-
-#' @examples
-#' viewAllCryptos()
-#'
-
-#' @author Vincent KV <contact@vincentkv.com>
-#' @import stringr
-#' @export
-#'
-
-viewAllCryptos <- function(){
-  options(warn=-1)
-  #cryptoslist <- read.csv("cryptolist.csv",sep=";")
-  A=str_remove_all(cryptolist$symbol,"-USD")
-  B=str_remove_all(cryptolist$full_name," USD")
-  table=data.frame(symbol=A,
-                   full_name=B)
-  View(table)
-}
-
-
-
-
-
-
-
 
 
 
