@@ -279,7 +279,7 @@ viewAllCryptos <- function(){
   B=str_remove_all(cryptolist$full_name," USD")
   table=data.frame(symbol=A,
                    full_name=B)
-  View(cryptoslist)
+  View(table)
 }
 
 
