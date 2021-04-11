@@ -20,8 +20,8 @@
 symbolCheck <- function(symbol){
   options(warn=-1)
   devtools::load_all()
-  library(Cryptics)
-  data("cryptolist",envir=environment())
+  #library(Cryptics)
+  #data("cryptolist",envir=environment())
 
   cryptolist$symbol=str_remove_all(cryptolist$symbol,"-USD")
   cryptolist$full_name=str_remove_all(cryptolist$full_name," USD")
