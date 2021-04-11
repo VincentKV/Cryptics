@@ -3,8 +3,10 @@
 ![GitHub Logo](/images/banner.png)
 
 ## Installation
-Prior to download this package, make sure you have devtools installed and loaded :
+Prior to download this package, make sure you have "usethis" and "devtools" installed and loaded :
 ```
+install.packages("usethis")
+library(usethis)
 install.packages("devtools")
 library(devtools)
 ```
