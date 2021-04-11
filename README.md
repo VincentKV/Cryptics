@@ -10,7 +10,7 @@ library(usethis)
 install.packages("devtools")
 library(devtools)
 ```
-Then, download and load the package :
+Then, download and load the package. Then, load the included data :
 ```
 install_github("VincentKV/Cryptics")
 library(Cryptics)
