@@ -4,15 +4,19 @@
 \alias{historic}
 \title{Historical data graph}
 \usage{
-historic(symbol = "BTC", currency = "USD")
+historic(symbol = "BTC", currency = "USD", norm = FALSE, log = FALSE)
 }
 \arguments{
 \item{symbol}{a character string of the symbol. Default is "BTC" for Bitcoin.}
 
 \item{currency}{a character string for the region of the currency. "USD", "EUR", "GBP"... Default is "USD" for US Dollar. USD is advised as there is more data in this currency.}
+
+\item{norm}{a boolean to normalize the graph between 0 and 1. 1 is the all-time-high.}
+
+\item{log}{a boolean to obtain the logarithm of the graph.}
 }
 \description{
-Plots an interactive graph with the normalized historical data of a single cryptocurrency.
+Plots an interactive graph with the normalized historical data of a single cryptocurrency. The values taken are the "Opens".
 }
 \examples{
 historic()

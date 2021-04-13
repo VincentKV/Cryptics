@@ -264,11 +264,12 @@ invest <- function(symbol="BTC",amount,start,end=as.Date(Sys.Date())){
 
 #' Historical data graph
 #'
-#' Plots an interactive graph with the normalized historical data of a single cryptocurrency.
+#' Plots an interactive graph with the normalized historical data of a single cryptocurrency. The values taken are the "Opens".
 #'
 #' @param symbol a character string of the symbol. Default is "BTC" for Bitcoin.
 #' @param currency a character string for the region of the currency. "USD", "EUR", "GBP"... Default is "USD" for US Dollar. USD is advised as there is more data in this currency.
-#'
+#' @param norm a boolean to normalize the graph between 0 and 1. 1 is the all-time-high.
+#' @param log a boolean to obtain the logarithm of the graph.
 #'
 
 #' @examples
@@ -282,12 +283,19 @@ invest <- function(symbol="BTC",amount,start,end=as.Date(Sys.Date())){
 #' @import dygraphs
 #' @export
 #'
-historic <- function(symbol="BTC",currency="USD"){
+historic <- function(symbol="BTC",currency="USD",norm=FALSE,log=FALSE){
   options(warn=-1)
   course=cryptoCourse(symbol,currency)#a double time-series
-  df=normalizedCourse(course)#a time series rongly named df
+  data <- xts(x = course$Open, order.by = time(df))
   title=paste("Normalized",symbol,"course",sep=" ")
-  data <- xts(x = df, order.by = time(df))
+  if(norm==TRUE){
+    df=normalizedCourse(course)#a time series rongly named df
+    data <- xts(x = df, order.by = time(df))
+  }
+  if(log==TRUE){
+    data <- xts(x = log(course$Open), order.by = time(df))
+  }
+
   p <- dygraph(data,
                main = title,
                ylab = "Value") %>%
@@ -312,6 +320,8 @@ historic <- function(symbol="BTC",currency="USD"){
 #' @param currency a character string for the region of the currency. "USD", "EUR", "GBP"... Default is "USD" for US Dollar.
 #' @param start a date in "YYYY-MM-DD" format. Default is 30 days before today.
 #' @param end a date in "YYYY-MM-DD" format. Default is today.
+#' @param norm a boolean to normalize the graph between 0 and 1. 1 is the all-time-high.
+#' @param log a boolean to obtain the logarithm of the graph.
 #'
 #'
 #'
@@ -326,7 +336,7 @@ historic <- function(symbol="BTC",currency="USD"){
 #' @import dygraphs
 #' @export
 
-candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys.Date()){
+candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys.Date(),norm=FALSE,log=TRUE){
   options(warn=-1)
   start=as.Date(start)
   end=as.Date(end)
@@ -339,13 +349,32 @@ candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys
     end=as.Date(Sys.Date()-2)#on décale au jour précédent
   }
   #conversion de la time series en dataframe
+
   data <- data.frame(
     Date=seq(from=start, to=end, by=1 ),
-    Open=ts$Open[which(time(ts)==start):which(time(ts)==end)]/max(ts$High,na.rm = TRUE),
-    High=ts$High[which(time(ts)==start):which(time(ts)==end)]/max(ts$High,na.rm = TRUE),
-    Low=ts$Low[which(time(ts)==start):which(time(ts)==end)]/max(ts$High,na.rm = TRUE),
-    Close=ts$Close[which(time(ts)==start):which(time(ts)==end)]/max(ts$High,na.rm = TRUE)
+    Open=ts$Open[which(time(ts)==start):which(time(ts)==end)],
+    High=ts$High[which(time(ts)==start):which(time(ts)==end)],
+    Low=ts$Low[which(time(ts)==start):which(time(ts)==end)],
+    Close=ts$Close[which(time(ts)==start):which(time(ts)==end)]
   )
+  if(norm==TRUE){
+    data <- data.frame(
+      Date=seq(from=start, to=end, by=1 ),
+      Open=ts$Open[which(time(ts)==start):which(time(ts)==end)]/max(ts$High,na.rm = TRUE),
+      High=ts$High[which(time(ts)==start):which(time(ts)==end)]/max(ts$High,na.rm = TRUE),
+      Low=ts$Low[which(time(ts)==start):which(time(ts)==end)]/max(ts$High,na.rm = TRUE),
+      Close=ts$Close[which(time(ts)==start):which(time(ts)==end)]/max(ts$High,na.rm = TRUE)
+    )
+  }
+  if(log==TRUE){
+    data <- data.frame(
+      Date=seq(from=start, to=end, by=1 ),
+      Open=log(ts$Open[which(time(ts)==start):which(time(ts)==end)]),
+      High=log(ts$High[which(time(ts)==start):which(time(ts)==end)]),
+      Low=log(ts$Low[which(time(ts)==start):which(time(ts)==end)]),
+      Close=log(ts$Close[which(time(ts)==start):which(time(ts)==end)])
+    )
+  }
   data <- xts(x = data[,-1], order.by = data$Date)
 
   # Plot it

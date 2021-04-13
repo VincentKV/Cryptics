@@ -8,7 +8,9 @@ candlesticks(
   symbol = "BTC",
   currency = "USD",
   start = Sys.Date() - 30,
-  end = Sys.Date()
+  end = Sys.Date(),
+  norm = FALSE,
+  log = TRUE
 )
 }
 \arguments{
@@ -19,6 +21,10 @@ candlesticks(
 \item{start}{a date in "YYYY-MM-DD" format. Default is 30 days before today.}
 
 \item{end}{a date in "YYYY-MM-DD" format. Default is today.}
+
+\item{norm}{a boolean to normalize the graph between 0 and 1. 1 is the all-time-high.}
+
+\item{log}{a boolean to obtain the logarithm of the graph.}
 }
 \description{
 Plots an interactive graph with the candlestick chart of a single cryptocurrency.
