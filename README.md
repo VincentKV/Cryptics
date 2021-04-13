@@ -10,7 +10,7 @@ library(usethis)
 install.packages("devtools")
 library(devtools)
 ```
-Then, download and load the package :
+Then, download and load the package. Finally, load the included data :
 ```
 install_github("VincentKV/Cryptics")
 library(Cryptics)
@@ -28,8 +28,7 @@ If you are not sure about the exact symbol, symbolCheck() provides you suggestio
 
 ### View all cryptocurrencies
 
-You can also visualize all the cryptocurrencies supported by the Cryptics package, and sort the columns alphabetically for a quicker search.
-![GitHub Logo](/images/viewallcryptos.png)
+You can also visualize all the cryptocurrencies supported by the Cryptics package, and sort the columns alphabetically for a quicker search with View(cryptolist).
 ![GitHub Logo](/images/viewall1.png)
 
 ### Cryptocurrency course
