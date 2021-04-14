@@ -286,10 +286,10 @@ invest <- function(symbol="BTC",amount,start,end=as.Date(Sys.Date())){
 historic <- function(symbol="BTC",currency="USD",norm=FALSE,log=FALSE){
   options(warn=-1)
   course=cryptoCourse(symbol,currency)#a double time-series
+  df=normalizedCourse(course)#a time series rongly named df
   data <- xts(x = course$Open, order.by = time(df))
   title=paste("Normalized",symbol,"course",sep=" ")
   if(norm==TRUE){
-    df=normalizedCourse(course)#a time series rongly named df
     data <- xts(x = df, order.by = time(df))
   }
   if(log==TRUE){
@@ -303,7 +303,6 @@ historic <- function(symbol="BTC",currency="USD",norm=FALSE,log=FALSE){
     dyRangeSelector()
   p
 }
-
 
 
 
@@ -336,7 +335,7 @@ historic <- function(symbol="BTC",currency="USD",norm=FALSE,log=FALSE){
 #' @import dygraphs
 #' @export
 
-candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys.Date(),norm=FALSE,log=TRUE){
+candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys.Date(),norm=FALSE,log=FALSE){
   options(warn=-1)
   start=as.Date(start)
   end=as.Date(end)

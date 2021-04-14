@@ -10,7 +10,7 @@ candlesticks(
   start = Sys.Date() - 30,
   end = Sys.Date(),
   norm = FALSE,
-  log = TRUE
+  log = FALSE
 )
 }
 \arguments{
