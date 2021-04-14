@@ -288,11 +288,13 @@ historic <- function(symbol="BTC",currency="USD",norm=FALSE,log=FALSE){
   course=cryptoCourse(symbol,currency)#a double time-series
   df=normalizedCourse(course)#a time series rongly named df
   data <- xts(x = course$Open, order.by = time(df))
-  title=paste("Normalized",symbol,"course",sep=" ")
+  title=paste(symbol,"course",sep=" ")
   if(norm==TRUE){
+    title=paste("Normalized",symbol,"course",sep=" ")
     data <- xts(x = df, order.by = time(df))
   }
   if(log==TRUE){
+    title=paste("Logarithm of",symbol,"course",sep=" ")
     data <- xts(x = log(course$Open), order.by = time(df))
   }
   if(norm==TRUE && log==TRUE){
@@ -341,7 +343,7 @@ candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys
   options(warn=-1)
   start=as.Date(start)
   end=as.Date(end)
-  title=paste("Normalized",symbol,"candlestick chart",sep=" ")
+  title=paste(symbol,"candlestick chart",sep=" ")
   ts=cryptoCourse(symbol,currency)#a double time-series
   if(end==as.Date(Sys.Date()) && as.Date(Sys.Date())!=time(ts)[length(ts$Open)]){
     end=as.Date(Sys.Date()-1)#on décale au jour précédent
@@ -359,6 +361,7 @@ candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys
     Close=ts$Close[which(time(ts)==start):which(time(ts)==end)]
   )
   if(norm==TRUE){
+    title=paste("Normalized",symbol,"candlestick chart",sep=" ")
     data <- data.frame(
       Date=seq(from=start, to=end, by=1 ),
       Open=ts$Open[which(time(ts)==start):which(time(ts)==end)]/max(ts$High,na.rm = TRUE),
@@ -368,6 +371,7 @@ candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys
     )
   }
   if(log==TRUE){
+    title=paste("Logarithm of",symbol,"candlestick chart",sep=" ")
     data <- data.frame(
       Date=seq(from=start, to=end, by=1 ),
       Open=log(ts$Open[which(time(ts)==start):which(time(ts)==end)]),
