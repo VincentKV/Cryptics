@@ -295,7 +295,9 @@ historic <- function(symbol="BTC",currency="USD",norm=FALSE,log=FALSE){
   if(log==TRUE){
     data <- xts(x = log(course$Open), order.by = time(df))
   }
-
+  if(norm==TRUE && log==TRUE){
+    return("Please choose between normalization and logarithm.")
+  }
   p <- dygraph(data,
                main = title,
                ylab = "Value") %>%
@@ -373,6 +375,9 @@ candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys
       Low=log(ts$Low[which(time(ts)==start):which(time(ts)==end)]),
       Close=log(ts$Close[which(time(ts)==start):which(time(ts)==end)])
     )
+  }
+  if(norm==TRUE && log==TRUE){
+    return("Please choose between normalization and logarithm.")
   }
   data <- xts(x = data[,-1], order.by = data$Date)
 
