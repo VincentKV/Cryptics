@@ -54,7 +54,7 @@ The default is Bitcoin with today as end date. 20 euros invested in Bitcoin on 2
 
 ### Historical data graph
 
-Plot an interactive graph with the historical data of a single cryptocurrency. You can normalize the graph or apply the logarithm. Trying both simultaneously will be interpreted as logarithm only. The default is Bitcoin in US Dollar. USD is advised as there is older data in this currency. Prints the creation date of the cryptocurrency.
+Plot an interactive graph with the historical data of a single cryptocurrency. You can normalize the graph or apply the logarithm. The default is Bitcoin in US Dollar. USD is advised as there is older data in this currency. Prints the creation date of the cryptocurrency.
 ![GitHub Logo](/images/historiccommand.png)
 ![GitHub Logo](/images/historic.png)
 
