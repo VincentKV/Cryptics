@@ -377,9 +377,7 @@ candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys
       Close=log(ts$Close[which(time(ts)==start):which(time(ts)==end)])
     )
   }
-  if(norm==TRUE && log==TRUE){
-    print("Please choose between normalization and logarithm.")
-  }
+
   data <- xts(x = data[,-1], order.by = data$Date)
 
   # Plot it
