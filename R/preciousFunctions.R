@@ -268,8 +268,8 @@ invest <- function(symbol="BTC",amount,start,end=as.Date(Sys.Date())){
 #'
 #' @param symbol a character string of the symbol. Default is "BTC" for Bitcoin.
 #' @param currency a character string for the region of the currency. "USD", "EUR", "GBP"... Default is "USD" for US Dollar. USD is advised as there is more data in this currency.
-#' @param norm a boolean to normalize the graph between 0 and 1. 1 is the all-time-high.
-#' @param log a boolean to obtain the logarithm of the graph.
+#' @param option a string : default is "original" and does not alter the data. Change to "norm" to normalize the graph between 0 and 1, 1 is the all-time-high. Change to "log" to obtain the logarithm of the graph.
+#'
 #'
 
 #' @examples
@@ -283,23 +283,21 @@ invest <- function(symbol="BTC",amount,start,end=as.Date(Sys.Date())){
 #' @import dygraphs
 #' @export
 #'
-historic <- function(symbol="BTC",currency="USD",norm=FALSE,log=FALSE){
+historic <- function(symbol="BTC",currency="USD",option="original"){
   options(warn=-1)
   course=cryptoCourse(symbol,currency)#a double time-series
   df=normalizedCourse(course)#a time series rongly named df
   data <- xts(x = course$Open, order.by = time(df))
   title=paste(symbol,"course",sep=" ")
-  if(norm==TRUE){
+  if(option=="norm"){
     title=paste("Normalized",symbol,"course",sep=" ")
     data <- xts(x = df, order.by = time(df))
   }
-  if(log==TRUE){
+  if(option=="log"){
     title=paste("Logarithm of",symbol,"course",sep=" ")
     data <- xts(x = log(course$Open), order.by = time(df))
   }
-  if(norm==TRUE && log==TRUE){
-    print("Please choose between normalization and logarithm.")
-  }
+
   p <- dygraph(data,
                main = title,
                ylab = "Value") %>%
@@ -323,8 +321,7 @@ historic <- function(symbol="BTC",currency="USD",norm=FALSE,log=FALSE){
 #' @param currency a character string for the region of the currency. "USD", "EUR", "GBP"... Default is "USD" for US Dollar.
 #' @param start a date in "YYYY-MM-DD" format. Default is 30 days before today.
 #' @param end a date in "YYYY-MM-DD" format. Default is today.
-#' @param norm a boolean to normalize the graph between 0 and 1. 1 is the all-time-high.
-#' @param log a boolean to obtain the logarithm of the graph.
+#' @param option a string : default is "original" and does not alter the data. Change to "norm" to normalize the graph between 0 and 1, 1 is the all-time-high. Change to "log" to obtain the logarithm of the graph.
 #'
 #'
 #'
@@ -339,7 +336,7 @@ historic <- function(symbol="BTC",currency="USD",norm=FALSE,log=FALSE){
 #' @import dygraphs
 #' @export
 
-candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys.Date(),norm=FALSE,log=FALSE){
+candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys.Date(),option="original"){
   options(warn=-1)
   start=as.Date(start)
   end=as.Date(end)
@@ -360,7 +357,7 @@ candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys
     Low=ts$Low[which(time(ts)==start):which(time(ts)==end)],
     Close=ts$Close[which(time(ts)==start):which(time(ts)==end)]
   )
-  if(norm==TRUE){
+  if(option=="norm"){
     title=paste("Normalized",symbol,"candlestick chart",sep=" ")
     data <- data.frame(
       Date=seq(from=start, to=end, by=1 ),
@@ -370,7 +367,7 @@ candlesticks <- function(symbol="BTC",currency="USD",start=Sys.Date()-30,end=Sys
       Close=ts$Close[which(time(ts)==start):which(time(ts)==end)]/max(ts$High,na.rm = TRUE)
     )
   }
-  if(log==TRUE){
+  if(option=="log"){
     title=paste("Logarithm of",symbol,"candlestick chart",sep=" ")
     data <- data.frame(
       Date=seq(from=start, to=end, by=1 ),
